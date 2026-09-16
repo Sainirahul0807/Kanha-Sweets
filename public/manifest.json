@@ -1,0 +1,21 @@
+{
+  "name": "Kanha Sweets",
+  "short_name": "Kanha Sweets",
+  "description": "Tauru's No.1 Sweet Shop Since 1990 - Authentic Indian Mithai, Namkeen & Gift Boxes",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFF8ED",
+  "theme_color": "#7A1F2B",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/logo/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["food", "shopping", "lifestyle"],
+  "lang": "en-IN",
+  "dir": "ltr"
+}
