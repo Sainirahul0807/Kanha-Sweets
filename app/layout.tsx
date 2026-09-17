@@ -75,7 +75,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en-IN" class={`${playfair.variable} ${poppins.variable} ${yatra.variable}`}>
+    <html
+      lang="en-IN"
+      className={`${playfair.variable} ${poppins.variable} ${yatra.variable}`}
+    >
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
