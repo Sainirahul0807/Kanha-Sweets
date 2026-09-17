@@ -14,17 +14,21 @@
   }
 
   body {
-    @apply bg-cream font-body text-maroon-dark antialiased;
+    background-color: #fff8e7;
+    color: #5b1722;
+    font-family: var(--font-poppins), sans-serif;
+    -webkit-font-smoothing: antialiased;
   }
 
   ::selection {
-    @apply bg-gold text-maroon;
+    background-color: #d4af37;
+    color: #7a1f2b;
   }
 }
 
 @layer components {
   .container-custom {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
   }
 
   .section-padding {
@@ -32,65 +36,49 @@
   }
 
   .gold-divider {
-    @apply w-24 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto my-8;
+    @apply mx-auto my-8 h-0.5 w-24 bg-gradient-to-r from-transparent via-gold to-transparent;
   }
 
   .section-title {
-    @apply font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-maroon relative inline-block;
+    @apply relative inline-block font-display text-3xl font-bold text-maroon sm:text-4xl lg:text-5xl;
   }
 
   .section-title::after {
-    @apply content-[''] absolute bottom-0 left-1/2 -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-gold to-gold-saffron;
+    content: '';
+    @apply absolute bottom-0 left-1/2 h-1 w-20 -translate-x-1/2 bg-gradient-to-r from-gold to-gold-saffron;
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center px-8 py-3 bg-maroon text-cream font-semibold rounded-lg
-           hover:bg-maroon-light transition-all duration-300 shadow-lg hover:shadow-xl
-           focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-cream;
+    @apply inline-flex items-center justify-center rounded-lg bg-maroon px-8 py-3 font-semibold text-cream shadow-lg transition-all duration-300 hover:bg-maroon-light hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-cream;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center px-8 py-3 border-2 border-gold text-maroon font-semibold rounded-lg
-           hover:bg-gold hover:text-cream transition-all duration-300
-           focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-cream;
+    @apply inline-flex items-center justify-center rounded-lg border-2 border-gold px-8 py-3 font-semibold text-maroon transition-all duration-300 hover:bg-gold hover:text-cream focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-cream;
   }
 
   .btn-gold {
-    @apply inline-flex items-center justify-center px-6 py-2 bg-gold text-maroon font-semibold rounded-lg
-           hover:bg-gold-light transition-all duration-300 shadow-md hover:shadow-lg
-           focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-cream;
+    @apply inline-flex items-center justify-center rounded-lg bg-gold px-6 py-2 font-semibold text-maroon shadow-md transition-all duration-300 hover:bg-gold-light hover:shadow-lg;
   }
 
   .card-mithai {
-    @apply relative bg-cream border border-gold/20 rounded-2xl overflow-hidden
-           shadow-lg hover:shadow-[0_20px_40px_rgba(122,31,43,0.15)] transition-all duration-500
-           hover:-translate-y-2 hover:border-gold/50;
-  }
-
-  .card-mithai::before {
-    @apply content-[''] absolute top-0 left-0 w-16 h-16 bg-[url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23D4AF37%22 stroke-opacity=%220.1%22 stroke-width=%221%22%3E%3Cpath d=%22M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5%22/%3E%3C/svg%3E')] bg-no-repeat bg-center opacity-50 pointer-events-none;
-  }
-
-  .card-mithai::after {
-    @apply content-[''] absolute bottom-0 right-0 w-16 h-16 bg-[url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23D4AF37%22 stroke-opacity=%220.1%22 stroke-width=%221%22%3E%3Cpath d=%22M12 22L22 17l-10-5-10 5zM22 7l-10-5-10 5M22 12l-10-5-10 5%22/%3E%3C/svg%3E')] bg-no-repeat bg-center opacity-50 pointer-events-none;
+    @apply relative overflow-hidden rounded-2xl border border-gold/20 bg-cream shadow-lg transition-all duration-500 hover:-translate-y-2 hover:border-gold/50 hover:shadow-xl;
   }
 
   .veg-badge {
-    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-100 text-green-800 text-xs font-medium;
+    @apply inline-flex items-center gap-1.5 rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-800;
   }
 
   .veg-badge::before {
-    @apply content-[''] w-2 h-2 rounded-full bg-green-600;
+    content: '';
+    @apply h-2 w-2 rounded-full bg-green-600;
   }
 
   .input-field {
-    @apply w-full px-4 py-3 bg-cream border border-gold/30 rounded-lg text-maroon
-           placeholder:text-maroon/40 focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent
-           transition-all duration-300;
+    @apply w-full rounded-lg border border-gold/30 bg-cream px-4 py-3 text-maroon transition-all duration-300 placeholder:text-maroon/40 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-gold;
   }
 
   .label-text {
-    @apply block mb-2 font-medium text-maroon/80;
+    @apply mb-2 block font-medium text-maroon/80;
   }
 }
 
@@ -103,46 +91,36 @@
     @apply bg-gradient-to-r from-maroon via-maroon-light to-maroon bg-clip-text text-transparent;
   }
 
-  .animate-delay-100 {
-    animation-delay: 100ms;
-  }
-
-  .animate-delay-200 {
-    animation-delay: 200ms;
-  }
-
-  .animate-delay-300 {
-    animation-delay: 300ms;
-  }
-
-  .animate-delay-400 {
-    animation-delay: 400ms;
-  }
-
-  .animate-delay-500 {
-    animation-delay: 500ms;
-  }
+  .animate-delay-100 { animation-delay: 100ms; }
+  .animate-delay-200 { animation-delay: 200ms; }
+  .animate-delay-300 { animation-delay: 300ms; }
+  .animate-delay-400 { animation-delay: 400ms; }
+  .animate-delay-500 { animation-delay: 500ms; }
 }
 
-/* Scrollbar styling */
 ::-webkit-scrollbar {
-  @apply w-2 h-2;
+  width: 0.5rem;
+  height: 0.5rem;
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-cream;
+  background: #fff8e7;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-gold/50 rounded-full hover:bg-gold;
+  background: rgba(212, 175, 55, 0.5);
+  border-radius: 9999px;
 }
 
-/* Focus visible for accessibility */
+::-webkit-scrollbar-thumb:hover {
+  background: #d4af37;
+}
+
 :focus-visible {
-  @apply outline-none ring-2 ring-gold ring-offset-2 ring-offset-cream;
+  outline: 2px solid #d4af37;
+  outline-offset: 2px;
 }
 
-/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
