@@ -11,20 +11,54 @@ import { Gallery } from '@/components/Gallery'
 import { Testimonials } from '@/components/Testimonials'
 import { CartDrawer } from '@/components/CartDrawer'
 import { OrderForm } from '@/components/OrderForm'
-import { Footer } from '@/components/Footer'
 import { CartProvider, OrderProvider } from '@/components/Providers'
+
+function SiteFooter() {
+  return (
+    <footer id="contact" className="bg-maroon text-cream" role="contentinfo">
+      <div className="container-custom py-12">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <div>
+            <h2 className="font-display text-2xl font-bold">Kanha Sweets</h2>
+            <p className="mt-3 text-cream/70">
+              Authentic Indian sweets, namkeen, and festive treats made with care.
+            </p>
+          </div>
+          <div>
+            <h3 className="font-display text-lg font-semibold">Quick Links</h3>
+            <div className="mt-3 flex flex-col gap-2 text-cream/70">
+              <a href="#home" className="hover:text-gold">Home</a>
+              <a href="#about" className="hover:text-gold">Our Story</a>
+              <a href="#menu" className="hover:text-gold">Menu</a>
+              <a href="#gallery" className="hover:text-gold">Gallery</a>
+              <a href="#order" className="hover:text-gold">Order Online</a>
+            </div>
+          </div>
+          <div>
+            <h3 className="font-display text-lg font-semibold">Visit Us</h3>
+            <p className="mt-3 text-cream/70">
+              Tauru, Nuh District, Haryana 122105, India
+            </p>
+            <p className="mt-2 text-cream/70">Open daily: 8:00 AM - 10:00 PM</p>
+          </div>
+        </div>
+        <div className="mt-10 border-t border-gold/20 pt-6 text-sm text-cream/50">
+          © {new Date().getFullYear()} Kanha Sweets. All rights reserved.
+        </div>
+      </div>
+    </footer>
+  )
+}
 
 export default function HomePage() {
   const [activeCategory, setActiveCategory] = useState<'all' | string>('all')
 
-  // Listen for category reset event from MenuSection
   useEffect(() => {
     const handleReset = () => setActiveCategory('all')
     window.addEventListener('reset-category', handleReset)
     return () => window.removeEventListener('reset-category', handleReset)
   }, [])
 
-  // Scroll to category section when changed
   useEffect(() => {
     if (activeCategory !== 'all') {
       const element = document.getElementById(`menu-${activeCategory}`)
@@ -38,52 +72,30 @@ export default function HomePage() {
     <CartProvider>
       <OrderProvider>
         <div className="min-h-screen bg-cream">
-          {/* Navbar */}
           <Navbar />
-
-          {/* Main Content */}
           <main id="main-content" className="pt-0" role="main">
-            {/* Hero */}
             <Hero />
-
-            {/* About */}
             <About />
-
-            {/* Category Navigation */}
             <CategoryNav
               activeCategory={activeCategory}
               onCategoryChange={setActiveCategory}
             />
-
-            {/* Menu Sections */}
             <MenuSection activeCategory={activeCategory} />
-
-            {/* Gallery */}
             <Gallery />
-
-            {/* Testimonials */}
             <Testimonials />
-
-            {/* Order Form */}
             <OrderForm />
           </main>
-
-          {/* Cart Drawer */}
           <CartDrawer />
-
-          {/* Footer */}
-          <Footer />
-
-          {/* Scroll to top button */}
+          <SiteFooter />
           <motion.button
             initial={{ opacity: 0, scale: 0 }}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            className="fixed bottom-8 right-8 z-40 w-12 h-12 bg-maroon text-cream rounded-full shadow-lg flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-cream"
+            className="fixed bottom-8 right-8 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-maroon text-cream shadow-lg focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-cream"
             aria-label="Scroll to top"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
             </svg>
           </motion.button>
