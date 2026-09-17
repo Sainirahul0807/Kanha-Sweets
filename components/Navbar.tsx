@@ -207,8 +207,10 @@ export function Navbar() {
                       Order Now
                     </Link>
                     <button
-                      onClick={toggleCart}
-                      onClick={() => setMobileMenuOpen(false)}
+                      onClick={() => {
+                        toggleCart()
+                        setMobileMenuOpen(false)
+                      }}
                       className="px-4 py-3 border-2 border-gold text-maroon font-semibold rounded-full"
                     >
                       View Cart ({itemCount})
