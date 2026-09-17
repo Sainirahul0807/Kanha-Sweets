@@ -125,7 +125,7 @@ export function useCart() {
 }
 
 // ============================================
-// ORDER CONTEXT (for form state)
+// ORDER CONTEXT
 // ============================================
 
 interface OrderFormData {
@@ -180,4 +180,13 @@ export function useOrder() {
     throw new Error('useOrder must be used within an OrderProvider')
   }
   return context
+}
+
+// Root provider expected by app/layout.tsx.
+export function Providers({ children }: { children: ReactNode }) {
+  return (
+    <CartProvider>
+      <OrderProvider>{children}</OrderProvider>
+    </CartProvider>
+  )
 }
