@@ -19,7 +19,6 @@ export function CartDrawer() {
 
   return (
     <AnimatePresence>
-      {/* Backdrop */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -29,7 +28,6 @@ export function CartDrawer() {
         aria-hidden="true"
       />
 
-      {/* Drawer */}
       <motion.aside
         initial={{ x: '100%' }}
         animate={{ x: 0 }}
@@ -40,7 +38,6 @@ export function CartDrawer() {
         aria-modal="true"
         aria-label="Shopping cart"
       >
-        {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-gold/20 sticky top-0 bg-cream z-10">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-gold/15 rounded-xl flex items-center justify-center">
@@ -60,7 +57,6 @@ export function CartDrawer() {
           </button>
         </div>
 
-        {/* Items List */}
         <div className="flex-1 overflow-y-auto p-4 space-y-4" role="list" aria-label="Cart items">
           {items.length === 0 ? (
             <div className="flex flex-col items-center justify-center h-full text-center py-20">
@@ -69,11 +65,7 @@ export function CartDrawer() {
               </div>
               <h4 className="font-display text-xl text-maroon mb-2">Your cart is empty</h4>
               <p className="text-maroon/60 mb-6">Add some delicious sweets to get started</p>
-              <Link
-                href="#menu"
-                onClick={closeCart}
-                className="btn-primary"
-              >
+              <Link href="#menu" onClick={closeCart} className="btn-primary">
                 Browse Menu
               </Link>
             </div>
@@ -88,13 +80,7 @@ export function CartDrawer() {
                 role="listitem"
               >
                 <div className="relative w-20 h-20 flex-shrink-0 rounded-xl overflow-hidden bg-gold/5">
-                  <Image
-                    src={item.image}
-                    alt={item.name}
-                    fill
-                    className="object-cover"
-                    sizes="80px"
-                  />
+                  <Image src={item.image} alt={item.name} fill className="object-cover" sizes="80px" />
                 </div>
 
                 <div className="flex-1 min-w-0">
@@ -109,15 +95,12 @@ export function CartDrawer() {
                     </button>
                   </div>
 
-                  {item.weight && (
-                    <p className="text-xs text-maroon/50 mb-1">{item.weight}</p>
-                  )}
+                  {item.weight && <p className="text-xs text-maroon/50 mb-1">{item.weight}</p>}
 
                   <p className="font-display font-bold text-gold text-sm">
-                    {formatPrice(item.price)} / {item.unit}
+                    {formatPrice(item.price)} per item
                   </p>
 
-                  {/* Quantity Controls */}
                   <div className="mt-2 flex items-center gap-2">
                     <button
                       onClick={() => updateQuantity(item.id, item.quantity - 1)}
@@ -145,7 +128,6 @@ export function CartDrawer() {
           )}
         </div>
 
-        {/* Summary */}
         <div className="p-6 border-t border-gold/20 bg-cream/50 space-y-3">
           <div className="flex justify-between text-maroon/70">
             <span>Subtotal ({itemCount} items)</span>
@@ -157,9 +139,7 @@ export function CartDrawer() {
               <Truck className="w-4 h-4" aria-hidden="true" />
               Delivery
             </span>
-            <span className="font-semibold">
-              {deliveryFee > 0 ? formatPrice(deliveryFee) : 'Free'}
-            </span>
+            <span className="font-semibold">{deliveryFee > 0 ? formatPrice(deliveryFee) : 'Free'}</span>
           </div>
 
           {subtotal > 0 && subtotal < freeDeliveryThreshold && (
@@ -176,28 +156,26 @@ export function CartDrawer() {
             <span className="font-display font-bold text-gold">{formatPrice(total)}</span>
           </div>
 
-          {/* Veg Notice */}
           <p className="text-xs text-maroon/50 flex items-center justify-center gap-1">
             <span className="w-2 h-2 rounded-full bg-green-600" aria-hidden="true" />
             All items are 100% vegetarian
           </p>
         </div>
 
-        {/* Actions */}
         <div className="p-6 border-t border-gold/20 bg-cream/50 space-y-3">
           {items.length > 0 && (
             <button
-              onClick={() => { closeCart(); document.getElementById('order')?.scrollIntoView({ behavior: 'smooth' }); }}
+              onClick={() => {
+                closeCart()
+                document.getElementById('order')?.scrollIntoView({ behavior: 'smooth' })
+              }}
               className="w-full btn-primary py-4 text-lg"
             >
               Proceed to Order
             </button>
           )}
           {items.length > 0 && (
-            <button
-              onClick={clearCart}
-              className="w-full btn-secondary py-3"
-            >
+            <button onClick={clearCart} className="w-full btn-secondary py-3">
               Clear Cart
             </button>
           )}
