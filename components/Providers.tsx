@@ -131,7 +131,9 @@ export function useCart() {
 interface OrderFormData {
   name: string
   phone: string
+  email: string
   address: string
+  area: string
   deliveryType: 'pickup' | 'delivery'
   preferredDate: string
   preferredTime: string
@@ -147,7 +149,9 @@ interface OrderContextType {
 const initialFormData: OrderFormData = {
   name: '',
   phone: '',
+  email: '',
   address: '',
+  area: '',
   deliveryType: 'pickup',
   preferredDate: '',
   preferredTime: '',
