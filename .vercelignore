@@ -40,23 +40,15 @@ coverage/
 *.spec.ts
 *.spec.tsx
 
-# TypeScript
+# TypeScript build cache
 *.tsbuildinfo
 
-# Vercel
+# Vercel local metadata
 .vercel
 
-# Git
+# Git metadata
 .git/
 .gitignore
 
-# README (optional - keep if you want it in deployment)
+# Optional documentation exclusion
 # README.md
-
-# Config files that shouldn't be in production
-tailwind.config.ts
-postcss.config.js
-tsconfig.json
-next.config.js
-package.json
-package-lock.json
